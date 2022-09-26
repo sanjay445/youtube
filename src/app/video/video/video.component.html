@@ -1,0 +1,63 @@
+<head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+  <div [ngClass]="color?'myclass-black':'myclass'">
+    <div class="row ">
+      <div class="col-8">
+        <div class="thumbnail">
+          <iframe width="750" height="420" [src]="('https://www.youtube.com/embed/' + videoId) | mypipe : 'resourceUrl'"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+            <br/><br/>
+          <h5>{{videoDetails[0].snippet.title|json}}</h5>
+          <p>{{videoDetails[0].snippet.publishedAt|json}}</p>
+          <img width="3%" src="https://cdn-icons-png.flaticon.com/512/126/126473.png" alt="" />
+          &nbsp;{{videoDetails[0].statistics.likeCount}} &nbsp; &nbsp;
+          <img width="3%" src="https://cdn-icons-png.flaticon.com/512/126/126504.png" alt="" /> &nbsp;DISLIKE &nbsp;
+          &nbsp;
+          <img width="3%" src="https://cdn-icons-png.flaticon.com/512/2958/2958783.png" alt="" /> &nbsp;SHARE &nbsp;
+          &nbsp;
+          <img width="3%" src="https://cdn-icons-png.flaticon.com/512/1665/1665583.png" alt="" /> &nbsp;DOWNLOAD &nbsp;
+          &nbsp;
+          <img width="3%" src="https://cdn-icons-png.flaticon.com/512/2927/2927563.png" alt="" /> &nbsp;CLIP &nbsp;
+          &nbsp;
+          <hr />
+          <div class="video__details">
+            <div class="author">
+              <img
+                src="https://yt3.ggpht.com/ytc/AMLnZu9Qb2nJ1WCbWBYdLs42PRhh76h0lMrY76r8qrj1Jg=s600-c-k-c0x00ffffff-no-rj-rp-mo"
+                alt="" />
+              <a href="https://www.youtube.com/c/Therichpost">{{videoDetails[0].snippet.channelTitle}}</a>
+              <a style="padding-left: 60%;"><button type="button" class="btn btn-danger">Subscribe</button></a>
+            </div>
+            <br />
+            <div class="description">
+              <p>{{videoDetails[0].snippet.description}}</p>
+            </div>
+            <hr />
+            <br />
+            <p>{{videoDetails[0].statistics.commentCount}} Comments</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="row" *ngFor="let video of  RelatedVideosDetails;let i = index;" style="margin-bottom: 8px;">
+          <div class="col-6">
+            <a  (click)="clickVideo(video)">
+              <img [src]="video.snippet.thumbnails.medium.url" class="card-img-top" alt="..."></a>
+          </div>
+          <div class="col-6">
+            <b class="title">{{video.snippet.title}}</b>
+            <p style="font-size:small;">{{video.snippet.channelTitle}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

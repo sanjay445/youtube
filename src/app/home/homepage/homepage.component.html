@@ -1,0 +1,32 @@
+<div  [ngClass]="color?'videos-black':'videos'">
+  <div class="videos__container">
+    <div *ngFor="let video of Popularvideos;let i = index;">
+      <div class="card shadow">
+        <div class="card-body">
+          <div class="video">
+            <div class="video__thumbnail">   
+              <a  (click)="clickVideo(video)">
+           
+               <!-- href="https://www.youtube.com/watch?v={{video.id.videoId}}"-->
+                <img [src]="video.snippet.thumbnails.medium.url" class="card-img-top" alt="..."></a>
+            </div>
+            <div class="video__details">
+              <div class="author">
+                <img
+                  src="https://yt3.ggpht.com/ytc/AMLnZu9Qb2nJ1WCbWBYdLs42PRhh76h0lMrY76r8qrj1Jg=s600-c-k-c0x00ffffff-no-rj-rp-mo"
+                  alt="" />
+              </div>
+              <div class="title">
+                <h3>
+                  {{video.snippet.title}}
+                </h3>
+                <a href="https://www.youtube.com/c/Therichpost">{{video.snippet.channelTitle}}</a>
+                <span>240 Views • {{video.snippet.publishedAt}}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> 
