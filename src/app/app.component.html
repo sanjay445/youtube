@@ -9,8 +9,10 @@
   <!--Child Component-->
   <app-header  (searchvalue)="Search($event)"></app-header>
   <div class="header__icons">
-    <i class="material-icons">videocam</i>
-    <i class="material-icons">notifications</i>
+    <div style="display:inline" class="xyz">
+      <i class="material-icons">videocam</i>
+      <i class="material-icons">notifications</i>
+    </div>
     <i class="material-icons display-this" (click)="Myaccount()">account_circle</i>
   </div>
 </div>
