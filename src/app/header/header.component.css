@@ -18,3 +18,8 @@
     margin: 0;
     height: 100%;
   }
+@media only screen and (max-width: 600px) {
+    .header__search form input{
+      width: 250px;
+    }
+  }
